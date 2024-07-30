@@ -45,20 +45,20 @@ class _SuraDetailsState extends State<SuraDetails> {
         body: Container(
           padding: const EdgeInsets.all(18.0),
           child: Card(
-            color: Color(0x80b7935f),
+            //color: Color(0x80b7935f),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(14),
             ),
             child: ListView.builder(
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: EdgeInsets.all(0),
+                  padding: EdgeInsets.all(10),
                   child: Text(
                     "${verses[index]}[${index + 1}]",
                     textDirection: TextDirection.rtl, // Corrected the parameter
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.inder(
-                      color: Colors.white,
+                    style: GoogleFonts.amiri(
+                      color: Colors.black,
                       fontSize: 20,
                       wordSpacing: 3,
                       fontWeight: FontWeight.w400,
