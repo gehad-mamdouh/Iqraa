@@ -18,7 +18,10 @@ class HadethDetails extends StatelessWidget {
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: Text(model.title),
+          title: Text(
+            model.title,
+            style: GoogleFonts.amiri(fontSize: 25),
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(18.0),

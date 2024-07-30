@@ -53,7 +53,7 @@ class _AhadethTabState extends State<AhadethTab> {
                     textAlign: TextAlign.center,
                     allAhadeth[index].title,
                     style: GoogleFonts.elMessiri(
-                      fontSize: 20,
+                      fontSize: 25,
                       fontWeight: FontWeight.w400,
                     )),
               );
