@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,22 +28,22 @@ class _AhadethTabState extends State<AhadethTab> {
       children: [
         Image.asset('assets/images/hadith_header-1.png', height: 219),
         Divider(
-          thickness: 3,
-          color: Color(0xffB7935F),
+
         ),
         Text(
-          'Ahadeth',
+          'ahadeth'.tr(),
           textAlign: TextAlign.center,
-          style:
-              GoogleFonts.elMessiri(fontSize: 25, fontWeight: FontWeight.w600),
+          style:Theme.of(context).textTheme.bodyMedium,
         ),
         Divider(
-          thickness: 3,
-          color: Color(0xffB7935F),
         ),
         Expanded(
           child: ListView.separated(
-            separatorBuilder: (context, index) => Divider(),
+            separatorBuilder: (context, index) => Divider(
+              thickness: 1,
+              endIndent: 40,
+              indent: 40,
+            ),
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
@@ -52,10 +53,7 @@ class _AhadethTabState extends State<AhadethTab> {
                 child: Text(
                     textAlign: TextAlign.center,
                     allAhadeth[index].title,
-                    style: GoogleFonts.elMessiri(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w400,
-                    )),
+                    style: Theme.of(context).textTheme.bodySmall),
               );
             },
             itemCount: allAhadeth.length,
@@ -64,7 +62,6 @@ class _AhadethTabState extends State<AhadethTab> {
       ],
     );
   }
-
   loadHadethFile() {
     rootBundle.loadString('assets/files/ahadeth.txt').then((value) {
       List<String> ahadeth = value.split('#');

@@ -15,17 +15,16 @@ class HadethDetails extends StatelessWidget {
           image:
               DecorationImage(image: AssetImage('assets/images/main_bg1.png'))),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
           title: Text(
             model.title,
-            style: GoogleFonts.amiri(fontSize: 25),
+            style: GoogleFonts.amiri(fontSize: 25,color: Colors.white),
           ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(18.0),
           child: Card(
+            color: Color(0x80b7935f),
             child: ListView.builder(
               itemBuilder: (context, index) {
                 return Padding(
