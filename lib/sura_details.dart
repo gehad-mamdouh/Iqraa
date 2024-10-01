@@ -1,7 +1,4 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/providers/sura_details_provider.dart';
 import 'package:islami/sura_model.dart';
@@ -15,7 +12,6 @@ class SuraDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var model = ModalRoute.of(context)?.settings.arguments as SuraModel;
-
     return ChangeNotifierProvider(
       create: (context) => SuraDetailsProvider()..loadSuraFile(model.index),
       builder: (context, child) {

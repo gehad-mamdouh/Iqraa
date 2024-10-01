@@ -66,7 +66,7 @@ class SettingsTab extends StatelessWidget {
                 border: Border.all(color: Color(0xffB7935F)),
               ),
               child: Text(
-                'english'.tr(),
+                pro.langCode == 'ar' ? 'arabic'.tr() : 'english'.tr(),
                 style: Theme.of(context).textTheme.bodySmall,
               ),
             ),

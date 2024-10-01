@@ -26,6 +26,7 @@ class LanguageBottomSheet extends StatelessWidget {
             onTap: () {
               pro.changeLanguage("en");
               context.setLocale(Locale('en'));
+              Navigator.pop(context); // إغلاق bottom sheet بعد الاختيار
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,6 +48,7 @@ class LanguageBottomSheet extends StatelessWidget {
             onTap: () {
               pro.changeLanguage("ar");
               context.setLocale(Locale('ar'));
+              Navigator.pop(context); // إغلاق bottom sheet بعد الاختيار
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -1,11 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/hadeth_details.dart';
 import 'package:islami/home/home_screen.dart';
 import 'package:islami/providers/my_provider.dart';
 import 'package:islami/sura_details.dart';
-import 'package:islami/providers/sura_details_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'my_theme_data.dart';
@@ -15,15 +13,15 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   runApp(
     EasyLocalization(
-      supportedLocales: [Locale('en'), Locale('ar')],
+      supportedLocales: const [Locale('en'), Locale('ar')],
       path: 'assets/translation',
       saveLocale: true,
-      startLocale: Locale('en'),
+      startLocale: const Locale('en'),
       child: MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (context) => MyProvider()),
         ],
-        child: MyApp(),
+        child: const MyApp(),
       ),
     ),
   );
@@ -48,7 +46,7 @@ class MyApp extends StatelessWidget {
       routes: {
         HomeScreen.routeName: (context) => HomeScreen(),
         SuraDetails.routName: (context) => SuraDetails(),
-        HadethDetails.routeName: (context) => HadethDetails(),
+        HadethDetails.routeName: (context) => const HadethDetails(),
       },
     );
   }
