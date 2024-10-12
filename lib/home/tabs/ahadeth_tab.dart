@@ -27,16 +27,13 @@ class _AhadethTabState extends State<AhadethTab> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Image.asset('assets/images/hadith_header-1.png', height: 219),
-        Divider(
-
-        ),
+        Divider(),
         Text(
-          'ahadeth'.tr(),
+          'ahadith'.tr(),
           textAlign: TextAlign.center,
-          style:Theme.of(context).textTheme.bodyMedium,
+          style: Theme.of(context).textTheme.bodyMedium,
         ),
-        Divider(
-        ),
+        Divider(),
         Expanded(
           child: ListView.separated(
             separatorBuilder: (context, index) => Divider(
@@ -53,7 +50,9 @@ class _AhadethTabState extends State<AhadethTab> {
                 child: Text(
                     textAlign: TextAlign.center,
                     allAhadeth[index].title,
-                    style: Theme.of(context).textTheme.bodySmall),
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        fontSize: 18,
+                        fontFamily: GoogleFonts.amiri().fontFamily)),
               );
             },
             itemCount: allAhadeth.length,
@@ -62,6 +61,7 @@ class _AhadethTabState extends State<AhadethTab> {
       ],
     );
   }
+
   loadHadethFile() {
     rootBundle.loadString('assets/files/ahadeth.txt').then((value) {
       List<String> ahadeth = value.split('#');

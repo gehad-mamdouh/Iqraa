@@ -34,6 +34,10 @@ class _HomeScreenState extends State<HomeScreen> {
           appBar: AppBar(
             title: Text(
               'islami'.tr(),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge
+                  ?.copyWith(fontFamily: GoogleFonts.arefRuqaa().fontFamily),
             ),
           ),
           bottomNavigationBar: BottomNavigationBar(

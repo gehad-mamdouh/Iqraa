@@ -1,12 +1,12 @@
 {
   "islami": "اقرأ",
   "sura_name": " السورة",
-  "ahadeth": "الأحاديث",
+  "ahadith": "الأحاديث",
   "theme": "المظهر",
   "dark": "ليلي",
   "light": "نهاري",
   "language": "اللغه",
   "english": "الأنجليزية",
-  "arabic": "العربية"
-
+  "arabic": "العربية",
+  "number of tasbeehs": "عدد التسبيجات"
 }

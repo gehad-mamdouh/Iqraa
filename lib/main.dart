@@ -19,7 +19,9 @@ void main() async {
       startLocale: const Locale('en'),
       child: MultiProvider(
         providers: [
-          ChangeNotifierProvider(create: (context) => MyProvider()),
+          ChangeNotifierProvider(
+              create: (context) =>
+                  MyProvider()..init()), // Initialize the provider
         ],
         child: const MyApp(),
       ),
@@ -45,8 +47,9 @@ class MyApp extends StatelessWidget {
       initialRoute: HomeScreen.routeName,
       routes: {
         HomeScreen.routeName: (context) => HomeScreen(),
-        SuraDetails.routName: (context) => SuraDetails(),
-        HadethDetails.routeName: (context) => const HadethDetails(),
+        SuraDetails.routeName: (context) => SuraDetails(),
+        HadethDetails.routeName: (context) =>
+            const HadethDetails.HadithScreen(),
       },
     );
   }

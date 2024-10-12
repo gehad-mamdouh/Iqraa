@@ -7,16 +7,38 @@ import '../providers/my_provider.dart';
 class RadioItem extends StatefulWidget {
   final Radios radioItem;
   final AudioPlayer audioPlayer;
+  final VoidCallback onPlayPause;
+  final VoidCallback onNext;
+  final VoidCallback onPrevious;
 
-  const RadioItem(
-      {super.key, required this.radioItem, required this.audioPlayer});
+  const RadioItem({
+    super.key,
+    required this.radioItem,
+    required this.audioPlayer,
+    required this.onPlayPause,
+    required this.onNext,
+    required this.onPrevious,
+  });
 
   @override
   State<RadioItem> createState() => _RadioItemState();
 }
 
 class _RadioItemState extends State<RadioItem> {
-  bool isClicked = false;
+  bool isPlaying = false;
+
+  void togglePlayPause() {
+    if (isPlaying) {
+      widget.audioPlayer.pause();
+      print('Paused: ${widget.radioItem.name}');
+      widget.audioPlayer.play(UrlSource(widget.radioItem.url ?? ""));
+      print('Playing: ${widget.radioItem.name}');
+    }
+    setState(() {
+      isPlaying = !isPlaying;
+    });
+    widget.onPlayPause();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,19 +50,19 @@ class _RadioItemState extends State<RadioItem> {
           alignment: Alignment.center,
           child: Text(
             widget.radioItem.name ?? "",
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black,
-                ),
+            style: Theme.of(context).textTheme.bodySmall,
           ),
         ),
-        const SizedBox(height: 20), // Add spacing
+        const SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             IconButton(
               iconSize: 50,
-              onPressed: () {},
+              onPressed: () {
+                widget.onPrevious();
+                print('Previous button pressed');
+              },
               icon: Icon(
                 Icons.skip_previous,
                 color: provider.appTheme == ThemeMode.light
@@ -50,16 +72,9 @@ class _RadioItemState extends State<RadioItem> {
             ),
             IconButton(
               iconSize: 100,
-              onPressed: () {
-                !isClicked
-                    ? widget.audioPlayer
-                        .play(UrlSource(widget.radioItem.url ?? ""))
-                    : widget.audioPlayer.pause();
-                isClicked = !isClicked;
-                setState(() {});
-              },
+              onPressed: togglePlayPause,
               icon: Icon(
-                !isClicked ? Icons.play_arrow_rounded : Icons.pause,
+                isPlaying ? Icons.pause : Icons.play_arrow_rounded,
                 color: provider.appTheme == ThemeMode.light
                     ? const Color(0xffB7935F)
                     : const Color(0xffFACC1D),
@@ -67,7 +82,10 @@ class _RadioItemState extends State<RadioItem> {
             ),
             IconButton(
               iconSize: 50,
-              onPressed: () {},
+              onPressed: () {
+                widget.onNext();
+                print('Next button pressed');
+              },
               icon: Icon(
                 Icons.skip_next,
                 color: provider.appTheme == ThemeMode.light

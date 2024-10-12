@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/my_provider.dart';
 
+import '../providers/my_provider.dart';
 class LanguageBottomSheet extends StatelessWidget {
   const LanguageBottomSheet({super.key});
 
@@ -12,21 +12,23 @@ class LanguageBottomSheet extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
+        color: pro.appTheme == ThemeMode.dark
+            ? const Color(0xff141A2E)
+            : Colors.white,
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(24),
           topRight: Radius.circular(24),
         ),
       ),
-      padding: EdgeInsets.all(18),
+      padding: const EdgeInsets.all(18),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           InkWell(
             onTap: () {
               pro.changeLanguage("en");
-              context.setLocale(Locale('en'));
-              Navigator.pop(context); // إغلاق bottom sheet بعد الاختيار
+              context.setLocale(const Locale('en'));
+              Navigator.pop(context);
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,21 +36,30 @@ class LanguageBottomSheet extends StatelessWidget {
                 Text(
                   'english'.tr(),
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: pro.langCode == 'en'
-                          ? Color(0xffB7935F)
-                          : Colors.black),
+                        color: pro.langCode == 'en'
+                            ? (pro.appTheme == ThemeMode.dark
+                                ? const Color(0xFFFACC1D)
+                                : const Color(0xffB7935F))
+                            : (pro.appTheme == ThemeMode.dark
+                                ? Colors.white
+                                : Colors.black),
+                      ),
                 ),
                 if (pro.langCode == 'en')
-                  Icon(Icons.done, size: 35, color: Color(0xffB7935F)),
+                  Icon(Icons.done,
+                      size: 35,
+                      color: pro.appTheme == ThemeMode.dark
+                          ? const Color(0xFFFACC1D)
+                          : const Color(0xffB7935F)),
               ],
             ),
           ),
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
           InkWell(
             onTap: () {
               pro.changeLanguage("ar");
-              context.setLocale(Locale('ar'));
-              Navigator.pop(context); // إغلاق bottom sheet بعد الاختيار
+              context.setLocale(const Locale('ar'));
+              Navigator.pop(context);
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,12 +67,21 @@ class LanguageBottomSheet extends StatelessWidget {
                 Text(
                   'arabic'.tr(),
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: pro.langCode == 'ar'
-                          ? Color(0xffB7935F)
-                          : Colors.black),
+                        color: pro.langCode == 'ar'
+                            ? (pro.appTheme == ThemeMode.dark
+                                ? const Color(0xFFFACC1D)
+                                : const Color(0xffB7935F))
+                            : (pro.appTheme == ThemeMode.dark
+                                ? Colors.white
+                                : Colors.black),
+                      ),
                 ),
                 if (pro.langCode == 'ar')
-                  Icon(Icons.done, size: 35, color: Color(0xffB7935F)),
+                  Icon(Icons.done,
+                      size: 35,
+                      color: pro.appTheme == ThemeMode.dark
+                          ? const Color(0xFFFACC1D)
+                          : const Color(0xffB7935F)),
               ],
             ),
           ),

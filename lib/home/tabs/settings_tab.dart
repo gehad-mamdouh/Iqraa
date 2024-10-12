@@ -1,9 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:islami/bottom_sheets/language_bottom_sheet.dart';
-import 'package:islami/bottom_sheets/theme_bottom_sheet.dart';
 import 'package:islami/providers/my_provider.dart';
 import 'package:provider/provider.dart';
+
+import '../../bottom_sheets/language_bottom_sheet.dart';
+import '../../bottom_sheets/theme_bottom_sheet.dart';
 
 class SettingsTab extends StatelessWidget {
   const SettingsTab({super.key});

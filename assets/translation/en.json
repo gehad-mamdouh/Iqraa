@@ -1,13 +1,13 @@
 
 {
   "islami": "Iqraa",
-  "sura_name": "Sura ",
-  "ahadeth": "Ahadeth",
+  "sura_name": "Sura Name ",
+  "ahadith": "Al-Ahadith",
   "theme": "Theme",
   "dark": "Dark",
   "light": "Light",
   "language": "Language",
   "english": "English",
-  "arabic": "Arabic"
-
+  "arabic": "Arabic",
+  "number of tasbeehs": "Number of Tasbeehs"
 }
